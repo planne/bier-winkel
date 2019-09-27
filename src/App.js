@@ -1,11 +1,16 @@
 import React from 'react';
+import ProductList from './components/ProductList';
 
-export class App extends React.Component {
+class App extends React.Component {
     render() {
         return (
-            <div className="hello">
-                Hello!
+            <div className="container">
+                <div>
+                    <ProductList />
+                </div>
             </div>
         )
     }
 }
+
+export default App;
