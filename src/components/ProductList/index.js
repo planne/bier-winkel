@@ -15,7 +15,7 @@ class ProductList extends React.Component {
     }
 
     fetch() {
-        this.props.fetchProducts();
+        this.props.fetchProducts('');
     }
 
     componentDidMount() {
