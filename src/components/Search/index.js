@@ -27,7 +27,7 @@ class Search extends React.Component {
 
     handleClickSearch() {
         const text = this.state.name.replace(/\s/g, '_');
-        this.props.fetchProducts('?beer_name=' + text);
+        this.props.fetchProducts('' === text? '' : '?beer_name=' + text);
     }
 
     render() {
