@@ -25,17 +25,19 @@ class ProductList extends React.Component {
     render() {
         const { products } = this.props;
         return (
-            <div>
+            <ul className="cards">
                 {products.map((product, index) => {
-                    const { name, description, image_url } = product;
+                    const { id, name, description, image_url } = product;
                     const configCardItem = {
+                        id,
+                        price: id + 100,
                         title: name,
                         desc: description,
                         imageUrl: image_url
                     };
-                    return (<Card key={index} {...configCardItem} />)
+                    return (<Card key={id} {...configCardItem} />)
                 })}
-            </div>
+            </ul>
         );
     }
 };

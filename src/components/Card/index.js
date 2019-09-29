@@ -3,16 +3,18 @@ import PropTypes from 'prop-types';
 
 class Card extends React.Component {
     render() {
-        const { title, desc, imageUrl } = this.props;
+        const { title, price, imageUrl } = this.props;
 
         return (
-            <div className="card">
-                <img src={imageUrl} className="card-image" width="40"/>
-                <div className="card-content">
-                    <h3 className="card-title">{title}</h3>
-                    <p className="carde-text">{desc}</p>
+            <li className="cards-item">
+                <div className="card">
+                    <div className="card-image"><img src={imageUrl} alt={title} width="40rem" /></div>
+                    <div className="card-content">
+                        <h2 className="card-title">{title}</h2>
+                        <p className="carde-text text-ellipsis">{price}</p>
+                    </div>
                 </div>
-            </div>
+            </li>
         );
     }
 }
