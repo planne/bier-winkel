@@ -6,4 +6,5 @@ const PurchaseButton = props => (
     <button className="btn-shopping-cart">
     <FontAwesomeIcon icon={faShoppingCart} /></button>
 );
+
 export default PurchaseButton;
