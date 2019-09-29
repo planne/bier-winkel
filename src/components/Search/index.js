@@ -33,8 +33,9 @@ class Search extends React.Component {
     render() {
         const { name } = this.state;
         return (
-            <div>
-                <input type="text" value={name} placeholder="Search beer name"
+            <div className="search-wrap">
+                <label htmlFor="searchInput">searchInput</label>
+                <input type="text" id="searchInput" value={name}
                     onChange={this.handleChangeInput} />
                 <button
                     onClick={this.handleClickSearch}>

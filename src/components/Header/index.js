@@ -7,9 +7,11 @@ export class Header extends React.Component {
     render() {
         return (
             <div className="header">
-                <Logo/>
+                <div className="fixed-top-left">
+                    <Logo />
+                </div>
                 <div className="fixed-top-right">
-                    <PurchaseButton/>
+                    <PurchaseButton />
                 </div>
                 <Search />
             </div>
