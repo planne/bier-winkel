@@ -1,13 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { displayOverlayDetail } from '../../actions'
 
 class Card extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClickProduct = this.handleClickProduct.bind(this);
+    }
+    handleClickProduct() {
+        this.props.displayOverlayDetail(true);
+    }
     render() {
         const { title, price, imageUrl } = this.props;
 
         return (
             <li className="cards-item">
-                <div className="card">
+                <div className="card" onClick={this.handleClickProduct}>
                     <div className="card-image"><img src={imageUrl} alt={title} width="40rem" /></div>
                     <div className="card-content">
                         <h2 className="card-title">{title}</h2>
@@ -24,4 +33,11 @@ Card.propTypes = {
     desc: PropTypes.string
 }
 
-export default Card;
+
+const mapStateToProps = state => {
+    return {
+        ...state
+    }
+}
+
+export default connect(mapStateToProps, { displayOverlayDetail })(Card);

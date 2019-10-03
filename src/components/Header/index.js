@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from './Logo';
-import PurchaseButton from './PurchaseButton';
+import CartButton from './CartButton';
 import Search from '../Search';
 
 export class Header extends React.Component {
@@ -11,7 +11,7 @@ export class Header extends React.Component {
                     <Logo />
                 </div>
                 <div className="fixed-top-right">
-                    <PurchaseButton />
+                    <CartButton />
                 </div>
                 <Search />
             </div>
