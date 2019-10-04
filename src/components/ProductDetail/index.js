@@ -59,18 +59,18 @@ class ProductDetail extends React.Component {
                             <FontAwesomeIcon icon={faTimes} />
                         </button>
                     </div>
-                    <h3 className="text-price">{product.price} kr</h3>
-                    <div className="quantity">
-                        <p>QTY: </p>
-                        <span>
-                            <label htmlFor="selectQuantity">Quantity</label>
+                    <div className="price-quantity-wrap">
+                        <label htmlFor="price">PRICE:&nbsp;</label>
+                        <p className="text-price" id="price">{product.price}</p>
+                        <label htmlFor="selectQuantity">QTY:&nbsp;</label>
+                        <div className="quantity">
                             <select id="selectQuantity"
                                 onChange={this.handleChangeQuantity}>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                             </select>
-                        </span>
+                        </div>
                     </div>
                     <div className="btn-add"
                         onClick={this.handleClickAdd}>

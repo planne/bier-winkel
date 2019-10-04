@@ -253,7 +253,7 @@ input {
 }
 
 .detail-image {
-    width: 30%;
+    width: 40%;
 }
 
 .detail-image>img {
@@ -261,9 +261,45 @@ input {
 }
 
 .detail-content {
-    width: 70%;
+    text-align: left;
+    width: 60%;
 }
 
-.quantity>span>label {
-    display: none;
+.price-quantity-wrap {
+    padding-top: 1rem;
+}
+
+.price-quantity-wrap,
+.quantity {
+    display: flex;
+}
+
+.text-price,
+.quantity,
+.btn-add {
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.text-price {
+    font-size: 18pt;
+    color: #ff4400;
+}
+
+.quantity>select {
+    width: 4rem;
+    height: 2rem;
+}
+
+.price-quantity-wrap label {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.btn-add {
+    color: #fff;
+    background-color: #ff4400;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
 }
