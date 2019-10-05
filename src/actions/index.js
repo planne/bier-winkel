@@ -17,6 +17,11 @@ export const fetchProducts = (param) => async (dispatch) => {
         })
 };
 
+export const updateProductId = (productId) => ({
+    type: types.UPDATE_PRODUCT_ID,
+    payload: productId
+});
+
 export const displayOverlayCart = (visible) => ({
     type: types.DISPLAY_OVERLAY_CART,
     payload: visible

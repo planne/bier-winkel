@@ -1,17 +1,11 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { displayOverlayDetail, addToCart } from '../../actions'
 
 const initialState = {
-    product: {
-        name: 'Punk IPA',
-        quantity: 1,
-        price: 100,
-        imageUrl: 'https://images.punkapi.com/v2/2.png'
-    }
+    product: {}
 }
 
 class ProductDetail extends React.Component {
@@ -30,7 +24,7 @@ class ProductDetail extends React.Component {
     }
 
     handleClickAdd() {
-        let item = this.props.products[0];
+        let item = this.state.product;
         item.quantity = this.state.product.quantity;
         this.props.addToCart(item);
     }
@@ -44,8 +38,29 @@ class ProductDetail extends React.Component {
         });
     }
 
+    getProductDetail() {
+        const targetId = this.props.detail.productId;
+        let product = this.props.products.filter(item =>
+            item.id === targetId
+        )[0];
+        product = {
+            ...product,
+            quantity: 1,
+            price: product.id + 100,
+            imageUrl: product.image_url
+        };
+        return product;
+    }
+
+    componentDidMount() {
+        this.setState({
+            product: this.getProductDetail()
+        });
+    }
+
     render() {
         const { product } = this.state;
+
         return (
             <div className="overlay-content overlay-detail">
                 <div className="detail-image">
@@ -76,6 +91,7 @@ class ProductDetail extends React.Component {
                         onClick={this.handleClickAdd}>
                         <h3>ADD TO CART</h3>
                     </div>
+                    <div className="description">{product.description}</div>
                 </div>
             </div>
         );
