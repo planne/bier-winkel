@@ -102,6 +102,11 @@ img {
     overflow: hidden;
     text-align: center;
     width: 100%;
+    cursor: pointer;
+}
+
+.card:hover {
+    color: #ff4400;
 }
 
 .card-image {
@@ -225,9 +230,11 @@ input {
     position: relative;
     top: 25%;
     width: 100%;
+    max-width: 900px;
     text-align: center;
     margin-top: 30px;
     padding: 1rem;
+    margin: auto;
 }
 
 .overlay-content-header>h2 {
@@ -302,4 +309,5 @@ input {
     text-align: center;
     padding: 1rem;
     margin-top: 1rem;
+    cursor: pointer;
 }
