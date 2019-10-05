@@ -9,15 +9,21 @@ const initialState = { items: [], subtotal: 0 };
 export default (state = initialState, action) => {
     // payload is a single product item
     let payload = action.payload;
+    let updatedItems = state.items;
 
     switch (action.type) {
         case types.ADD_TO_CART:
-            const amount = payload.price * payload.quantity;
+            const quantity = parseInt(payload.quantity, 10);
+            const amount = payload.price * quantity;
+            const itemIndex = updatedItems.map(item => item.id).indexOf(payload.id);
+            if (itemIndex > -1) {
+                updatedItems[itemIndex].quantity += quantity;
+                console.log(updatedItems[itemIndex].quantity );
+            } else {
+                updatedItems.push(payload);
+            }
             return {
-                items: [
-                    ...state.items,
-                    payload
-                ],
+                items: updatedItems,
                 subtotal: state.subtotal + amount
             };
         case types.REMOVE_ITEM:
@@ -31,7 +37,7 @@ export default (state = initialState, action) => {
             };
         case types.ADD_QUANTITY:
         case types.SUB_QUANTITY:
-            const updatedItems = state.items.map(item => {
+            updatedItems = state.items.map(item => {
                 return payload.id === item.id ? payload : item;
             });
             const subtotal = sum(updatedItems, 'total');
