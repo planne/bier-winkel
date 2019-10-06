@@ -29,12 +29,12 @@ class CartList extends React.Component {
         const { cart } = this.props;
         return (
             <div className="overlay-content">
+                <button className="btn-close-overlay"
+                    onClick={this.handleClickClose}>
+                    <FontAwesomeIcon icon={faTimes} />
+                </button>
                 <div className="overlay-content-header">
                     <h2>Cart</h2>
-                    <button className="btn-close-overlay"
-                        onClick={this.handleClickClose}>
-                        <FontAwesomeIcon icon={faTimes} />
-                    </button>
                 </div>
                 {cart.items.length === 0 ?
                     <div className="cart-empty">

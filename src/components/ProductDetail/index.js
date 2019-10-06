@@ -69,12 +69,12 @@ class ProductDetail extends React.Component {
                     <img src={product.imageUrl} alt={product.name} />
                 </div>
                 <div className="detail-content">
+                    <button className="btn-close-overlay"
+                        onClick={this.handleClickClose}>
+                        <FontAwesomeIcon icon={faTimes} />
+                    </button>
                     <div className="detail-content-header">
                         <h2>{product.name}</h2>
-                        <button className="btn-close-overlay"
-                            onClick={this.handleClickClose}>
-                            <FontAwesomeIcon icon={faTimes} />
-                        </button>
                     </div>
                     <div className="price-quantity-wrap">
                         <label htmlFor="price">PRICE:&nbsp;</label>
