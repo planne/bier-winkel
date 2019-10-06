@@ -390,3 +390,22 @@ input {
     font-size: 16pt;
     text-align: center;
 }
+
+.detail-info {
+    margin-top: 1rem;
+    list-style: none;
+}
+
+.detail-info>li {
+    padding: 0.2rem;
+}
+
+.abv-ibu {
+    font-size: 10pt;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.tagline {
+    font-size: 12pt;
+}

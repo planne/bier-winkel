@@ -57,6 +57,7 @@ export default (state = initialState, action) => {
                     subtotal: sum(updatedItems, 'total')
                 }
             }
+            return state;
         default:
             return state;
     }

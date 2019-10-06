@@ -95,7 +95,17 @@ class ProductDetail extends React.Component {
                         onClick={this.handleClickAdd}>
                         <h3>ADD TO CART</h3>
                     </div>
-                    <div className="description">{product.description}</div>
+                    <ul className="detail-info">
+                        <li className="abv-ibu">
+                            {product.abv} % alcohol by volume, {product.ibu} IBU
+                        </li>
+                        <li className="tagline">
+                            <q>{product.tagline}</q>
+                        </li>
+                        <li className="description">
+                            {product.description}
+                        </li>
+                    </ul>
                 </div>
             </div>
         );
