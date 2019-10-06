@@ -196,6 +196,7 @@ input {
     height: 2rem;
     background-color: #000;
     color: #fff;
+    text-align: center;
 }
 
 .filter-wrap {
@@ -236,6 +237,7 @@ input {
     margin-top: 30px;
     padding: 1rem;
     margin: auto;
+    overflow-y: scroll;
 }
 
 .overlay-content-header>h2 {
@@ -260,8 +262,25 @@ input {
     height: 100%;
 }
 
-.detail-image {
-    width: 40%;
+@media(max-width: 40rem) {
+    .detail-image {
+        width: 100%;
+        margin: auto;
+    }
+
+    .detail-content {
+        width: 100%;
+    }
+}
+
+@media(min-width: 42rem) {
+    .detail-image {
+        width: 30%;
+    }
+
+    .detail-content {
+        width: 70%;
+    }
 }
 
 .detail-image>img {
@@ -270,7 +289,6 @@ input {
 
 .detail-content {
     text-align: left;
-    width: 60%;
 }
 
 .price-quantity-wrap {

@@ -29,7 +29,7 @@ class CartList extends React.Component {
         const { cart } = this.props;
         return (
             <div className="overlay-content">
-                <button className="btn-close-overlay"
+                <button className="btn-close-overlay fixed-top-right"
                     onClick={this.handleClickClose}>
                     <FontAwesomeIcon icon={faTimes} />
                 </button>

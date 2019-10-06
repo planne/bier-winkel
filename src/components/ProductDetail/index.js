@@ -65,14 +65,14 @@ class ProductDetail extends React.Component {
 
         return (
             <div className="overlay-content overlay-detail">
+                <button className="btn-close-overlay fixed-top-right"
+                    onClick={this.handleClickClose}>
+                    <FontAwesomeIcon icon={faTimes} />
+                </button>
                 <div className="detail-image">
                     <img src={product.imageUrl} alt={product.name} />
                 </div>
                 <div className="detail-content">
-                    <button className="btn-close-overlay"
-                        onClick={this.handleClickClose}>
-                        <FontAwesomeIcon icon={faTimes} />
-                    </button>
                     <div className="detail-content-header">
                         <h2>{product.name}</h2>
                     </div>
