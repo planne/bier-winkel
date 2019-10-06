@@ -5,6 +5,5 @@ export const types = {
     DISPLAY_OVERLAY_DETAIL: 'displayOverlayDetail',
     ADD_TO_CART: 'addToCart',
     REMOVE_ITEM: 'removeItem',
-    SUB_QUANTITY: 'subtractQuantity',
-    ADD_QUANTITY: 'addQuantity'
+    UPDATE_ITEM_QUANTITY: 'updateItemQuantity'
 };

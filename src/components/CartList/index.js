@@ -50,7 +50,9 @@ class CartList extends React.Component {
                             return (<CartItem key={id} {...configCardItem} />)
                         })}
                     </ul>
-                    <div className="total-amount"></div>
+                    <div className="total-amount">
+                        {cart.subtotal}
+                    </div>
                 </div>
                 <div className="btn-checkout"
                     onClick={this.handleClickCheckout}>

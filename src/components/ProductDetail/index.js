@@ -27,6 +27,7 @@ class ProductDetail extends React.Component {
     handleClickAdd() {
         let item = this.state.product;
         item.quantity = this.state.product.quantity;
+        item.total = item.quantity * item.price;
         this.props.addToCart(item);
     }
 

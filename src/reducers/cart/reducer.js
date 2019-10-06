@@ -39,23 +39,24 @@ export default (state = initialState, action) => {
             const item = state.items.filter(item =>
                 item.id === payload.id
             );
-            const total = item.price * item.quantity;
             return {
                 items: state.items.filter(item =>
                     item.id !== payload.id
                 ),
-                subtotal: state.subtotal - total
+                subtotal: state.subtotal - item[0].total
             };
-        case types.ADD_QUANTITY:
-        case types.SUB_QUANTITY:
-            updatedItems = state.items.map(item => {
-                return payload.id === item.id ? payload : item;
-            });
-            const subtotal = sum(updatedItems, 'total');
-            return {
-                items: updatedItems,
-                subtotal: subtotal
-            };
+        case types.UPDATE_ITEM_QUANTITY:
+            const targetIndex = updatedItems.map(item => item.id).indexOf(payload.id);
+            if (targetIndex > -1) {
+                let quantity = parseInt(payload.quantity, 10);
+                let price = updatedItems[targetIndex].price;
+                updatedItems[targetIndex].quantity = quantity;
+                updatedItems[targetIndex].total = quantity * price;
+                return {
+                    items: updatedItems,
+                    subtotal: sum(updatedItems, 'total')
+                }
+            }
         default:
             return state;
     }

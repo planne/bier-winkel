@@ -51,3 +51,11 @@ export const addQuantity = (productItem) => ({
     type: types.ADD_QUANTITY,
     payload: productItem
 });
+
+export const updateItemQuantity = (productId, quantity) => ({
+    type: types.UPDATE_ITEM_QUANTITY,
+    payload: {
+        id: productId,
+        quantity: quantity
+    }
+});

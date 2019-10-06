@@ -3,13 +3,20 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import { removeItem } from '../../actions'
+import { updateItemQuantity, removeItem } from '../../actions'
 
 class CartItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
+        this.handleChangeQuantity = this.handleChangeQuantity.bind(this);
         this.handleClickRemove = this.handleClickRemove.bind(this);
+    }
+
+    handleChangeQuantity(e) {
+        const productId = this.props.id;
+        const quantity = e.target.value;
+        this.props.updateItemQuantity(productId, quantity);
     }
 
     handleClickRemove(productId) {
@@ -29,7 +36,8 @@ class CartItem extends React.Component {
                 </span>
                 <h2 className="cart-item-name">{name}</h2>
                 <p className="cart-item-price text-ellipsis">{price}</p>
-                <select className="cart-item-quantity" defaultValue={quantity}>
+                <select className="cart-item-quantity" defaultValue={quantity}
+                    onChange={this.handleChangeQuantity}>
                     {quantityOptions}
                 </select>
                 <button className="btn-remove-from-cart"
@@ -46,4 +54,4 @@ CartItem.propTypes = {
     desc: PropTypes.string
 }
 
-export default connect(null, { removeItem })(CartItem);
+export default connect(null, { updateItemQuantity, removeItem })(CartItem);
