@@ -357,3 +357,17 @@ input {
 .product-content {
     display: flex;
 }
+
+.cart-empty {
+    padding: 1rem;
+}
+
+.cart-empty>h3 {
+    padding: 1rem;
+}
+
+.btn-keep-shopping {
+    color: #ff4400;
+    text-decoration: underline;
+    cursor: pointer;
+}

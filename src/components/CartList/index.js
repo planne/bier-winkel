@@ -2,7 +2,7 @@ import React from 'react';
 import CartItem from '../CartItem';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faBoxOpen } from '@fortawesome/free-solid-svg-icons'
 import { displayOverlayCart } from '../../actions'
 
 const initialState = {};
@@ -36,28 +36,45 @@ class CartList extends React.Component {
                         <FontAwesomeIcon icon={faTimes} />
                     </button>
                 </div>
-                <div className="added-items">
-                    <ul className="cart-items">
-                        {cart.items.map((item, index) => {
-                            const { id, name, quantity, image_url } = item;
-                            const configCardItem = {
-                                id,
-                                name,
-                                quantity,
-                                price: id + 100,
-                                imageUrl: image_url
-                            };
-                            return (<CartItem key={id} {...configCardItem} />)
-                        })}
-                    </ul>
-                    <div className="total-amount">
-                        {cart.subtotal}
+                {cart.items.length === 0 ?
+                    <div className="cart-empty">
+                        <span className="icon-empty-box">
+                            <FontAwesomeIcon icon={faBoxOpen} size="6x" />
+                        </span>
+                        <h3>Your cart is empty!</h3>
+                        <div className="btn-keep-shopping"
+                            onClick={this.handleClickClose}>
+                            <h3>KEEP SHOPPING</h3>
+                        </div>
                     </div>
-                </div>
-                <div className="btn-checkout"
-                    onClick={this.handleClickCheckout}>
-                    <h3>CHECKOUT</h3>
-                </div>
+                    :
+                    <div className="added-items">
+                        <ul className="cart-items">
+                            {cart.items.map((item, index) => {
+                                const { id, name, quantity, image_url } = item;
+                                const configCardItem = {
+                                    id,
+                                    name,
+                                    quantity,
+                                    price: id + 100,
+                                    imageUrl: image_url
+                                };
+                                return (<CartItem key={id} {...configCardItem} />)
+                            })}
+                        </ul>
+                        <div className="total-amount">
+                            {cart.subtotal}
+                        </div>
+                    </div>
+                }
+                {cart.items.length === 0 ?
+                    null
+                    :
+                    <div className="btn-checkout"
+                        onClick={this.handleClickCheckout}>
+                        <h3>CHECKOUT</h3>
+                    </div>
+                }
             </div>
         );
     }
