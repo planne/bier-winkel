@@ -37,7 +37,8 @@ class Search extends React.Component {
                 <label htmlFor="searchInput">searchInput</label>
                 <input type="text" id="searchInput" value={name}
                     onChange={this.handleChangeInput} />
-                <button
+                <button className="btn-search"
+                    aria-label="search"
                     onClick={this.handleClickSearch}>
                     <FontAwesomeIcon icon={faSearch} />
                 </button>

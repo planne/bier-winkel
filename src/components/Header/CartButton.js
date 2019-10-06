@@ -22,6 +22,7 @@ class CartButton extends React.Component {
     render() {
         return (
             <button className="btn-shopping-cart"
+                aria-label="cart"
                 onClick={this.handleClickCart}>
                 <FontAwesomeIcon icon={faShoppingCart} />
             </button>

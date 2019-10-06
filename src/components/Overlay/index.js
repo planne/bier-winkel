@@ -20,7 +20,7 @@ class Overlay extends React.Component {
         if (ui.overlayCart) {
             contentComponent = <CartList />;
         }
-        
+
         if (ui.overlayDetail) {
             contentComponent = <ProductDetail />;
         }

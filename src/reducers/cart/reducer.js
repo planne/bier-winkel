@@ -1,5 +1,7 @@
 import { types } from './../../actions/types';
 
+const MAX_QTY = 10;
+
 const sum = (items, key) => {
     return items.reduce((a, b) => a + (b[key] || 0), 0);
 }
@@ -13,14 +15,21 @@ export default (state = initialState, action) => {
 
     switch (action.type) {
         case types.ADD_TO_CART:
-            const quantity = parseInt(payload.quantity, 10);
-            const amount = payload.price * quantity;
             const itemIndex = updatedItems.map(item => item.id).indexOf(payload.id);
-            if (itemIndex > -1) {
-                updatedItems[itemIndex].quantity += quantity;
-                console.log(updatedItems[itemIndex].quantity );
-            } else {
+            let payloadQty = parseInt(payload.quantity, 10);
+            let amount = payload.price * payload.quantity;
+            if (updatedItems.length === 0 || itemIndex === -1) {
+                // push item
                 updatedItems.push(payload);
+            } else {
+                // update item
+                let currentQty = parseInt(updatedItems[itemIndex].quantity, 10);
+                let newQty = currentQty + payloadQty;
+                if (newQty > MAX_QTY) {
+                    newQty = MAX_QTY;
+                    amount = (MAX_QTY - currentQty) * payload.price;
+                }
+                updatedItems[itemIndex].quantity = newQty;
             }
             return {
                 items: updatedItems,
