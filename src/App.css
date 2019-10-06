@@ -248,7 +248,8 @@ input {
 }
 
 .btn-checkout {
-    border: 2px solid #000;
+    background: #ff4400;
+    color: #fff;
     padding: 1rem;
 }
 
@@ -338,6 +339,7 @@ input {
     .cart-item-name {
         width: 60%;
         text-align: left;
+        font-size: 14pt;
     }
 
     .cart-item-price {
@@ -370,4 +372,22 @@ input {
     color: #ff4400;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.cart-subtotal {
+    display: flex;
+    font-size: 12pt;
+    padding: 0.5rem;
+    border-top: 2px dashed #d1d1d1;
+}
+
+.subtotal-text {
+    margin: auto;
+}
+
+.subtotal-value {
+    width: 50%;
+    color: #ff4400;
+    font-size: 16pt;
+    text-align: center;
 }

@@ -62,8 +62,13 @@ class CartList extends React.Component {
                                 return (<CartItem key={id} {...configCardItem} />)
                             })}
                         </ul>
-                        <div className="total-amount">
-                            {cart.subtotal}
+                        <div className="cart-subtotal">
+                            <span className="subtotal-text">
+                                Subtotal
+                            </span>
+                            <span className="subtotal-value">
+                                {cart.subtotal}
+                            </span>
                         </div>
                     </div>
                 }
@@ -72,7 +77,7 @@ class CartList extends React.Component {
                     :
                     <div className="btn-checkout"
                         onClick={this.handleClickCheckout}>
-                        <h3>CHECKOUT</h3>
+                        <h3>CHECK OUT</h3>
                     </div>
                 }
             </div>
