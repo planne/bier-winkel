@@ -36,12 +36,14 @@ export default (state = initialState, action) => {
                 subtotal: state.subtotal + amount
             };
         case types.REMOVE_ITEM:
-            const total = payload.price * payload.quantity;
+            const item = state.items.filter(item =>
+                item.id === payload.id
+            );
+            const total = item.price * item.quantity;
             return {
-                items: [
-                    ...state.items.slice(0, payload),
-                    ...state.items.slice(payload + 1)
-                ],
+                items: state.items.filter(item =>
+                    item.id !== payload.id
+                ),
                 subtotal: state.subtotal - total
             };
         case types.ADD_QUANTITY:

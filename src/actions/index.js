@@ -37,9 +37,9 @@ export const addToCart = (productItem) => ({
     payload: productItem
 });
 
-export const removeItem = (productItem) => ({
+export const removeItem = (productId) => ({
     type: types.REMOVE_ITEM,
-    payload: productItem
+    payload: productId
 });
 
 export const subtractQuantity = (productItem) => ({
