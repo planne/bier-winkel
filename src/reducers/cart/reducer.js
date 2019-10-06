@@ -9,7 +9,6 @@ const sum = (items, key) => {
 const initialState = { items: [], subtotal: 0 };
 
 export default (state = initialState, action) => {
-    // payload is a single product item
     let payload = action.payload;
     let updatedItems = state.items;
 
