@@ -50,6 +50,11 @@ class SearchFilter extends React.Component {
         let abv = this.state.abv;
         let ibu = this.state.ibu;
         let partialParam;
+        const name = this.props.searchName;
+
+        if('' !== name) {
+            params.push('beer_name=' + name);
+        }
 
         if ('all' !== abv) {
             partialParam = this.getNumberRange(abv, 'abv');
@@ -108,7 +113,8 @@ class SearchFilter extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        resultCount: state.products.length
+        resultCount: state.products.length,
+        searchName: state.ui.searchName
     }
 }
 

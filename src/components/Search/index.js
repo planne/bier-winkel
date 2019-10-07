@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux';
-import { fetchProducts } from '../../actions';
+import { setParamSearchName, fetchProducts } from '../../actions';
 
 const initialState = {
     name: ''
@@ -27,7 +27,9 @@ class Search extends React.Component {
 
     handleClickSearch() {
         const text = this.state.name.replace(/\s/g, '_');
-        this.props.fetchProducts('' === text ? '' : '?beer_name=' + text);
+        const query = 'beer_name=' + text;
+        this.props.setParamSearchName(text);
+        this.props.fetchProducts('?' + query);
     }
 
     render() {
@@ -57,4 +59,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchProducts })(Search);
+export default connect(mapStateToProps, { setParamSearchName, fetchProducts })(Search);

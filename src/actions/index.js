@@ -59,3 +59,8 @@ export const updateItemQuantity = (productId, quantity) => ({
         quantity: quantity
     }
 });
+
+export const setParamSearchName = (name) => ({
+    type: types.SET_PARAM_SEARCH_NAME,
+    payload: name
+});
