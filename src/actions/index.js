@@ -64,3 +64,7 @@ export const setParamSearchName = (name) => ({
     type: types.SET_PARAM_SEARCH_NAME,
     payload: name
 });
+
+export const resetCart = () => ({
+    type: types.RESET_CART
+});

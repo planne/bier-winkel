@@ -52,7 +52,7 @@ class SearchFilter extends React.Component {
         let partialParam;
         const name = this.props.searchName;
 
-        if('' !== name) {
+        if ('' !== name) {
             params.push('beer_name=' + name);
         }
 

@@ -252,6 +252,7 @@ input {
     background: #ff4400;
     color: #fff;
     padding: 1rem;
+    cursor: pointer;
 }
 
 .overlay-detail {

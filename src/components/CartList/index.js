@@ -3,7 +3,7 @@ import CartItem from '../CartItem';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faBoxOpen } from '@fortawesome/free-solid-svg-icons'
-import { displayOverlayCart } from '../../actions'
+import { resetCart, displayOverlayCart } from '../../actions'
 
 const initialState = {};
 
@@ -22,7 +22,9 @@ class CartList extends React.Component {
     }
 
     handleClickCheckout() {
-
+        alert('Order complete! Back to main.');
+        this.props.resetCart();
+        this.props.displayOverlayCart(false);
     }
 
     render() {
@@ -92,4 +94,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { displayOverlayCart })(CartList);
+export default connect(mapStateToProps, { resetCart, displayOverlayCart })(CartList);

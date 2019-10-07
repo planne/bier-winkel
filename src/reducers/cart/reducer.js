@@ -57,6 +57,11 @@ export default (state = initialState, action) => {
                 }
             }
             return state;
+        case types.RESET_CART:
+            return {
+                items: [],
+                subtotal: 0
+            };
         default:
             return state;
     }
