@@ -1,0 +1,430 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Bree Serif', sans-serif;
+    font-size: 13px;
+}
+
+img {
+    width: 2.2rem;
+    height: auto;
+    max-width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.text-ellipsis {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 5rem;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #fff;
+    text-align: center;
+}
+
+.fixed-top-left {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+    text-align: left;
+    max-width: 1200px;
+}
+
+.fixed-top-left>h1 {
+    padding-left: 1rem;
+}
+
+.fixed-top-right {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    text-align: right;
+    max-width: 1200px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.cards-item {
+    display: flex;
+    padding: 1rem;
+}
+
+@media (max-width: 40rem) {
+    .cards-item {
+        width: 50%;
+    }
+}
+
+@media (min-width: 40rem) {
+    .cards-item {
+        width: 33.3333%;
+    }
+}
+
+@media (min-width: 56rem) {
+    .cards-item {
+        width: 25%;
+    }
+}
+
+.card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.card:hover {
+    color: #ff4400;
+}
+
+.card-image {
+    height: 10rem;
+    display: flex;
+    align-items: center;
+}
+
+.card-content {
+    padding: 1rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin: 0px;
+}
+
+.card-text {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+}
+
+.search-wrap {
+    height: 4.4rem;
+    padding: 1rem;
+}
+
+.search-wrap>label {
+    display: none;
+}
+
+.search-wrap>input {
+    padding-left: 0.4rem;
+    font-size: 1rem;
+    width: 16rem;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    border-bottom: 0.1rem solid #000;
+    outline: none;
+}
+
+@media (max-width: 42rem) {
+    .search-wrap {
+        margin-top: 2.4rem;
+    }
+
+    .filter-wrap {
+        padding-top: 4em;
+    }
+}
+
+button {
+    width: 2rem;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+select,
+input {
+    outline: none;
+}
+
+.search-wrap>button {
+    border-bottom: 0.1rem solid #000;
+}
+
+.btn-shopping-cart,
+.btn-close-overlay {
+    height: 2rem;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.filter-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.filter-wrap>span {
+    width: 33.3333%;
+    text-align: center;
+    margin: auto;
+}
+
+.filter-wrap select {
+    width: 6rem;
+    height: 2rem;
+    margin-left: 0.4rem;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.overlay-content {
+    background: #fff;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    text-align: center;
+    margin-top: 30px;
+    padding: 1rem;
+    margin: auto;
+    overflow-y: scroll;
+}
+
+.overlay-content-header>h2 {
+    height: 2rem;
+}
+
+.btn-close-overlay {
+    float: right;
+}
+
+.btn-checkout {
+    background: #ff4400;
+    color: #fff;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.overlay-detail {
+    display: flex;
+    flex-wrap: wrap;
+    top: 0;
+    margin-top: 0;
+    height: 100%;
+}
+
+@media(max-width: 40rem) {
+    .detail-image {
+        width: 100%;
+        margin: auto;
+    }
+
+    .detail-content {
+        width: 100%;
+    }
+}
+
+@media(min-width: 42rem) {
+    .detail-image {
+        width: 30%;
+    }
+
+    .detail-content {
+        width: 70%;
+    }
+}
+
+.detail-image>img {
+    width: 20%;
+}
+
+.detail-content {
+    text-align: left;
+}
+
+.price-quantity-wrap {
+    padding-top: 1rem;
+}
+
+.price-quantity-wrap,
+.quantity {
+    display: flex;
+}
+
+.text-price,
+.quantity,
+.btn-add {
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.text-price {
+    font-size: 18pt;
+    color: #ff4400;
+}
+
+.quantity>select {
+    width: 4rem;
+    height: 2rem;
+}
+
+.price-quantity-wrap label {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.btn-add {
+    color: #fff;
+    background-color: #ff4400;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+@media (min-width: 10rem) {
+    .cart-item {
+        display: flex;
+    }
+
+    .cart-item-image,
+    .cart-item-name,
+    .cart-item-price,
+    .cart-item-quantity,
+    .btn-remove-from-cart {
+        padding: 1rem;
+        margin: auto;
+    }
+
+    .cart-item-image {
+        width: 15%;
+    }
+
+    .cart-item-image>img {
+        max-height: 4rem;
+    }
+
+    .cart-item-name {
+        width: 60%;
+        text-align: left;
+        font-size: 14pt;
+    }
+
+    .cart-item-price {
+        width: 10%;
+    }
+
+    .cart-item-quantity {
+        width: 8%;
+        height: 2rem;
+    }
+
+    .btn-remove-from-cart {
+        width: 7%;
+    }
+}
+
+.product-content {
+    display: flex;
+}
+
+.cart-empty {
+    padding: 1rem;
+}
+
+.cart-empty>h3 {
+    padding: 1rem;
+}
+
+.btn-keep-shopping {
+    color: #ff4400;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.cart-subtotal {
+    display: flex;
+    font-size: 12pt;
+    padding: 0.5rem;
+    border-top: 2px dashed #d1d1d1;
+}
+
+.subtotal-text {
+    margin: auto;
+}
+
+.subtotal-value {
+    width: 50%;
+    color: #ff4400;
+    font-size: 16pt;
+    text-align: center;
+}
+
+.detail-info {
+    margin-top: 1rem;
+    list-style: none;
+}
+
+.detail-info>li {
+    padding: 0.2rem;
+}
+
+.abv-ibu {
+    font-size: 10pt;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.tagline {
+    font-size: 12pt;
+}
