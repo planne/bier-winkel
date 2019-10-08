@@ -38,6 +38,7 @@ class Search extends React.Component {
             <div className="search-wrap">
                 <label htmlFor="searchInput">searchInput</label>
                 <input type="text" id="searchInput" value={name}
+                    autoComplete="none"
                     onChange={this.handleChangeInput} />
                 <button className="btn-search"
                     aria-label="search"
