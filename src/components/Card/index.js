@@ -18,12 +18,12 @@ class Card extends React.Component {
         const { id, title, price, imageUrl } = this.props;
 
         return (
-            <li className="cards-item">
+            <li className="cards-item" data-test="cardComponent">
                 <div className="card" onClick={() => this.handleClickProduct(id)}>
                     <div className="card-image"><img src={imageUrl} alt={title} width="40rem" /></div>
                     <div className="card-content">
-                        <h2 className="card-title">{title}</h2>
-                        <p className="carde-text text-ellipsis">{price}</p>
+                        <h2 className="card-title" data-test="componentTitle">{title}</h2>
+                        <p className="carde-text text-ellipsis" data-test="componentPrice">{price}</p>
                     </div>
                 </div>
             </li>
@@ -33,7 +33,7 @@ class Card extends React.Component {
 
 Card.propTypes = {
     title: PropTypes.string,
-    desc: PropTypes.string
+    price: PropTypes.number
 }
 
 

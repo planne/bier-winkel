@@ -1,6 +1,7 @@
 import React from 'react';
-import CartItem from '../CartItem';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import CartItem from '../CartItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faBoxOpen } from '@fortawesome/free-solid-svg-icons'
 import { resetCart, displayOverlayCart } from '../../actions'
@@ -30,7 +31,7 @@ class CartList extends React.Component {
     render() {
         const { cart } = this.props;
         return (
-            <div className="overlay-content">
+            <div className="overlay-content" data-test="cartListComponent">
                 <button className="btn-close-overlay fixed-top-right"
                     onClick={this.handleClickClose}>
                     <FontAwesomeIcon icon={faTimes} />
@@ -51,7 +52,7 @@ class CartList extends React.Component {
                     </div>
                     :
                     <div className="added-items">
-                        <ul className="cart-items">
+                        <ul className="cart-items" data-test="componentCartItems">
                             {cart.items.map((item, index) => {
                                 const { id, name, quantity, image_url } = item;
                                 const configCardItem = {
@@ -64,7 +65,7 @@ class CartList extends React.Component {
                                 return (<CartItem key={id} {...configCardItem} />)
                             })}
                         </ul>
-                        <div className="cart-subtotal">
+                        <div className="cart-subtotal" data-test="componentSubtotal">
                             <span className="subtotal-text">
                                 Subtotal
                             </span>
@@ -87,11 +88,18 @@ class CartList extends React.Component {
     }
 };
 
+CartList.propTypes = {
+    cart: PropTypes.shape({
+        items: PropTypes.array.isRequired,
+        subtotal: PropTypes.number.isRequired
+    })
+};
+
 const mapStateToProps = state => {
     return {
         ...state,
         cart: state.cart
     }
-}
+};
 
 export default connect(mapStateToProps, { resetCart, displayOverlayCart })(CartList);

@@ -30,18 +30,22 @@ class CartItem extends React.Component {
         });
 
         return (
-            <li className="cart-item">
+            <li className="cart-item" data-test="cartItemComponent">
                 <span className="cart-item-image">
-                    <img src={imageUrl} alt={name} />
+                    <img src={imageUrl} alt={name} data-test="componentImage" />
                 </span>
-                <h2 className="cart-item-name">{name}</h2>
-                <p className="cart-item-price text-ellipsis">{price}</p>
+                <h2 className="cart-item-name"
+                    data-test="componentName">{name}</h2>
+                <p className="cart-item-price text-ellipsis"
+                    data-test="componentPrice">{price}</p>
                 <select className="cart-item-quantity" defaultValue={quantity}
-                    onChange={this.handleChangeQuantity}>
+                    onChange={this.handleChangeQuantity}
+                    data-test="componentQuantity" >
                     {quantityOptions}
                 </select>
                 <button className="btn-remove-from-cart"
-                    onClick={() => this.handleClickRemove(id)}>
+                    onClick={() => this.handleClickRemove(id)}
+                    data-test="componentButton">
                     <FontAwesomeIcon icon={faTrashAlt} size="lg" />
                 </button>
             </li>
@@ -50,8 +54,17 @@ class CartItem extends React.Component {
 }
 
 CartItem.propTypes = {
-    title: PropTypes.string,
-    desc: PropTypes.string
+    id: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number,
+    quantity: PropTypes.string,
+    imageUrl: PropTypes.string
 }
 
-export default connect(null, { updateItemQuantity, removeItem })(CartItem);
+const mapStateToProps = state => {
+    return {
+        ...state
+    }
+}
+
+export default connect(mapStateToProps, { updateItemQuantity, removeItem })(CartItem);

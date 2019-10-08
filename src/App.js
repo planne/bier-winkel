@@ -12,7 +12,7 @@ class App extends React.Component {
     render() {
         const { ui } = this.props;
         return (
-            <div className="container">
+            <div className="container" data-test="appComponent">
                 <Header />
                 <SearchFilter />
                 <ProductList />

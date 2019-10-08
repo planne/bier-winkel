@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import CartList from '../CartList';
 import ProductDetail from '../ProductDetail';
@@ -18,25 +19,35 @@ class Overlay extends React.Component {
         let contentComponent;
 
         if (ui.overlayCart) {
-            contentComponent = <CartList />;
+            contentComponent = <CartList data-test="componentCart" />;
         }
 
         if (ui.overlayDetail) {
-            contentComponent = <ProductDetail />;
+            contentComponent = <ProductDetail data-test="componentProductDetail" />;
         }
 
         return (
-            <div className="overlay">
+            <div className="overlay"
+                data-test="overlayComponent">
                 {contentComponent}
             </div>
         );
     }
 }
 
+Overlay.propType = {
+    ui: PropTypes.shape({
+        overlayCart: PropTypes.bool.isRequired,
+        overlayDetail: PropTypes.bool.isRequired,
+        searchName: PropTypes.string.isRequired
+    })
+};
+
+
 const mapStateToProps = state => {
     return {
         ui: state.ui
     }
-}
+};
 
 export default connect(mapStateToProps)(Overlay);

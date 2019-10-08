@@ -38,6 +38,13 @@ export default (state = initialState, action) => {
             const item = state.items.filter(item =>
                 item.id === payload.id
             );
+            
+            if(item.length === 0) {
+                return {
+                    items: [],
+                    subtotal: 0
+                }
+            }
             return {
                 items: state.items.filter(item =>
                     item.id !== payload.id
