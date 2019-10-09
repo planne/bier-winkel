@@ -1,4 +1,4 @@
-# bier-winkel
+# react-beer-shop
 simple beer shop made with [Punk API](https://punkapi.com/documentation/v2)
 
 - search by beer name
